@@ -21,7 +21,7 @@ If you are using another build automation tool, you can find configuration strin
 https://search.maven.org/artifact/com.github.rkonovalov/advancedlogger/1.0.0/jar
 
 # Description
-Usually when you using Log4J logging you are using next construction
+Usually when are you using Log4J logging you should to use next code
 ```java
 public class Example {
     private static final Logger logger = Logger.getLogger(Example.class);
@@ -34,7 +34,7 @@ public class Example {
 }
 ```
 
-But sometimes, specifically in high load applications, we schould use next construction
+But sometimes, specifically in high load applications, we should to use next code
 ```java
 public class Example {
     private static final Logger logger = Logger.getLogger(Example.class);
@@ -68,7 +68,7 @@ public class Example {
 ```
 Every time we need to check that some log level is enabled. And we are forced to write some excessive code.
 
-AdvancedLogger Intended to solve this problems. AdvancedLogger auto checks log level before call log function. If log level is not enabled AdvancedLogger won't to call log function.
+AdvancedLogger Intended to solve this problems. It auto checks log level before call log function. If log level is not enabled AdvancedLogger won't to call log function.
 
 ## Examples
 In the next example you can see typical initialization and usage of AdvancedLogger
@@ -97,16 +97,17 @@ public class Example {
         logger.info(() -> "Hello");
         
         //Log info strings
-        logger.info(() -> "Hello", () -> "World");
+        logger.info(() -> "First message", () -> "Second message", () -> "Third message");
         
         //Or
-        logger.info(() -> "Hello")
-              .info(() -> "World");
+        logger.info(() -> "First message")
+              .info(() -> "Second message")
+              .info(() -> "Third message");
         
         //Log in different log levels
-        logger.info(() -> "Info message")
-                .debug(() -> "Debug message")
-                .error(() -> "Error message");
+        logger.info(() -> "Info message") //calls info log if INFO level is enabled
+                .debug(() -> "Debug message") //calls debug log if DEBUG level is enabled
+                .error(() -> "Error message"); //calls error log if ERROR level is enabled
        
     }
 }
