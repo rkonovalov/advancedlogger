@@ -20,6 +20,54 @@ If you are using Maven you need add next dependency
 If you are using another build automation tool, you can find configuration string by this URL:
 https://search.maven.org/artifact/com.github.rkonovalov/advancedlogger/1.0.0/jar
 
+# Description
+Usually when you using Log4J logging you are using next construction
+```java
+public class Example {
+    private static final Logger logger = Logger.getLogger(Example.class);
+
+    public static void main(String[] args) {
+        logger.info("Application started");
+        //Do some stuff....
+        logger.info("Application ended");
+    }
+}
+```
+
+But sometimes, specifically in high load applications, we schould use next construction
+```java
+public class Example {
+    private static final Logger logger = Logger.getLogger(Example.class);
+
+    public static void main(String[] args) {
+         if(logger.isInfoEnabled())
+             logger.info("Application started");
+                
+         //Do some stuff....
+         if(logger.isDebugEnabled())
+             logger.debug("Some debug message");
+        
+         //Do some stuff....
+        if(logger.isErrorEnabled())
+            logger.error("Some error message", error);
+        
+         //Do some stuff....
+         //Logging multiple messages
+           if(logger.isInfoEnabled()) {
+               logger.info("First message"); 
+               logger.info("Second message"); 
+               logger.info("Third message");                
+           }
+           
+           //Or logging multiple messages as one
+           if(logger.isInfoEnabled()) {
+               logger.info("First message" + "Second message" + "Third message"); 
+           }
+    }
+}
+```
+Every time we need to check that some log level is enabled. And we are forced to write some excessive code.
+
 ## Examples
 In next example you can see typical initialization and usage of AdvancedLogger
 
