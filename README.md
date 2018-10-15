@@ -26,7 +26,7 @@ In next example you can see typical initialization and usage of AdvancedLogger
 ### Initialization
 ```java
 public class Example {
-    public static final AdvancedLogger logger = new AdvancedLogger(Example.class);
+    private static final AdvancedLogger logger = new AdvancedLogger(Example.class);
 
     public static void main(String[] args) {
         logger.info(() -> "Application started");
@@ -39,7 +39,7 @@ public class Example {
 ### Log simple messages
 ```java
 public class Example {
-    public static final AdvancedLogger logger = new AdvancedLogger(Example.class);
+    private static final AdvancedLogger logger = new AdvancedLogger(Example.class);
 
     public static void main(String[] args) {
         
@@ -65,7 +65,7 @@ public class Example {
 ### Log throwable messages
 ```java
 public class Example {
-    public static final AdvancedLogger logger = new AdvancedLogger(Example.class);
+    private static final AdvancedLogger logger = new AdvancedLogger(Example.class);
 
     public static void main(String[] args) {
         
@@ -74,6 +74,33 @@ public class Example {
         
     }
 }
+```
+
+### Log static events
+```java
+public class Example {
+    private static final AdvancedLogger logger = new AdvancedLogger(Example.class);
+    private static final LoggerEvent currentTime = () -> "Current time: " + new Date().toString();
+
+    public static void main(String[] args) {
+        
+        //Log info current time
+        logger.info(currentTime);
+        
+        //Do some stuff
+        
+        //Log info current time
+        logger.info(currentTime);
+    }
+}
+```
+
+#### Result
+```text
+2018-10-15 12:09:31.271 INFO [main] Example Current time: Mon Oct 15 12:09:31 EDT 2018
+...
+...
+2018-10-15 12:09:31.271 INFO [main] Example Current time: Mon Oct 15 12:09:32 EDT 2018
 ```
 
 ## Version 1.0.0
