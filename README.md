@@ -68,8 +68,10 @@ public class Example {
 ```
 Every time we need to check that some log level is enabled. And we are forced to write some excessive code.
 
+AdvancedLogger Intended to solve this problems. AdvancedLogger auto checks log level before call log function. If log level is not enabled AdvancedLogger won't to call log function.
+
 ## Examples
-In next example you can see typical initialization and usage of AdvancedLogger
+In the next example you can see typical initialization and usage of AdvancedLogger
 
 ### Initialization
 ```java
@@ -77,7 +79,7 @@ public class Example {
     private static final AdvancedLogger logger = new AdvancedLogger(Example.class);
 
     public static void main(String[] args) {
-        logger.info(() -> "Application started");
+        logger.info(() -> "Application started");//No need to check log level anymore
         //Do some stuff....
         logger.info(() -> "Application ended");
     }
