@@ -3,7 +3,7 @@
 [![Javadocs](http://www.javadoc.io/badge/com.github.rkonovalov/advancedlogger.svg)](http://www.javadoc.io/doc/com.github.rkonovalov/advancedlogger)
 
 # Advanced logger
-Json ignore module for Spring Framework can be used in Spring MVC Rest project for filtering(excluding) of json response.
+Advanced logger expands opportunities of standard Log4J logger
 
 # Getting started
 For using this module you need to follow for next steps
