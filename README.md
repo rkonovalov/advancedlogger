@@ -3,7 +3,7 @@
 [![Javadocs](http://www.javadoc.io/badge/com.github.rkonovalov/advancedlogger.svg)](http://www.javadoc.io/doc/com.github.rkonovalov/advancedlogger)
 
 # Advanced logger
-Advanced logger expands opportunities of standard Log4J logger
+Advanced logger expands features of standard Log4J logger
 
 # Getting started
 For using this module you need to follow for next steps
@@ -27,6 +27,7 @@ public class Example {
     private static final Logger logger = Logger.getLogger(Example.class);
 
     public static void main(String[] args) {
+        
         logger.info("Application started");
         //Do some stuff....
         logger.info("Application ended");
@@ -40,6 +41,7 @@ public class Example {
     private static final Logger logger = Logger.getLogger(Example.class);
 
     public static void main(String[] args) {
+        
          if(logger.isInfoEnabled())
              logger.info("Application started");
                 
@@ -47,9 +49,15 @@ public class Example {
          if(logger.isDebugEnabled())
              logger.debug("Some debug message");
         
-         //Do some stuff....
-        if(logger.isErrorEnabled())
-            logger.error("Some error message", error);
+         
+         try {            
+             //Do some stuff
+             //...
+              } catch (Exception e) {
+                if(logger.isErrorEnabled())
+                    logger.error("Some error", e);
+              }  
+              
         
          //Do some stuff....
          //Logging multiple messages
@@ -79,6 +87,7 @@ public class Example {
     private static final AdvancedLogger logger = new AdvancedLogger(Example.class);
 
     public static void main(String[] args) {
+        
         logger.info(() -> "Application started");//No need to check log level anymore
         //Do some stuff....
         logger.info(() -> "Application ended");
