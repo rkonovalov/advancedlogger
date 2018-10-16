@@ -14,7 +14,7 @@ If you are using Maven you need add next dependency
 <dependency>
   <groupId>com.github.rkonovalov</groupId>
   <artifactId>advancedlogger</artifactId>
-  <version>1.0</version>
+  <version>1.1</version>
 </dependency>
 ```
 If you are using another build automation tool, you can find configuration string by this URL:
@@ -163,5 +163,75 @@ public class Example {
 2018-10-15 12:09:31.271 INFO [main] Example Current time: Mon Oct 15 12:09:32 EDT 2018
 ```
 
-## Version 1.0.0
+### Packet logging
+If the log process takes a lot of time, you can use packet logging
+```java
+public class Example {
+    private static final AdvancedLogger logger = new AdvancedLogger(Example.class);
+    private static final LoggerEvent currentTime = () -> "Current time: " + new Date().toString();
+
+    public static void main(String[] args) {
+        
+        //Start packet logging. All next log events will be added in event queue
+        logger.startPacket();
+        
+        //Log info current time
+        logger.info(currentTime);
+        
+        //Do some stuff
+        //...
+        
+        //Log info current time
+        logger.info(currentTime);
+        
+        //Stop packet logging. Print all log events from event queue
+        logger.stopPacket();
+    }
+}
+```
+#### Result
+```text
+...
+2018-10-15 12:09:31.271 INFO [main] Example Current time: Mon Oct 15 12:09:32 EDT 2018
+2018-10-15 12:09:31.271 INFO [main] Example Current time: Mon Oct 15 12:09:32 EDT 2018
+```
+
+### Packet logging in time critical mode
+By default packet logging in non critical time mode, 
+that means result from log event will be gotten and printed when logger stopped packet logging by using logger.stopPacket() call
+
+But sometimes we need get result from event at same time when event will be added to event queue. 
+Thus wee need to change packet logging mode to time critical. Next example illustrates how we can do it
+```java
+public class Example {
+    private static final AdvancedLogger logger = new AdvancedLogger(Example.class);
+    private static final LoggerEvent currentTime = () -> "Current time: " + new Date().toString();
+
+    public static void main(String[] args) {
+        
+        //Start packet logging in critical time mode. All next log events will be added in event queue
+        //and all event results will be gotten at same time when it added in queue
+        logger.startPacket(PacketType.CRITICAL);
+        
+        //Log info current time
+        logger.info(currentTime);
+        
+        //Do some stuff
+        //...
+        
+        //Log info current time
+        logger.info(currentTime);
+        
+        //Stop packet logging. Print all log events from event queue
+        //logger will print already gotten event results
+        logger.stopPacket();
+    }
+}
+```
+
+
+## Version 1.1
+Added packet logging
+
+## Version 1.0
 Initial release
