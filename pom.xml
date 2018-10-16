@@ -17,7 +17,7 @@
     </properties>
 
     <name>Advanced logger</name>
-    <description>Advanced logger expands opportunities of standard Log4J logger</description>
+    <description>Advanced logger expands features of standard Log4J logger</description>
     <url>https://github.com/rkonovalov/advancedlogger</url>
 
     <licenses>

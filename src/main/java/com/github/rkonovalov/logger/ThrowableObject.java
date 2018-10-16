@@ -1,36 +1,51 @@
 package com.github.rkonovalov.logger;
 
+/**
+ * ThrowableObject
+ * This class used in {@link AdvancedLogger}
+ */
+
 public class ThrowableObject {
     private Object object;
     private Throwable throwable;
 
+    /**
+     * Constructor
+     */
     public ThrowableObject() {
     }
 
+    /**
+     * Constructor
+     * @param object the message object
+     * @param throwable the exception object, including its stack trace
+     */
     public ThrowableObject(Object object, Throwable throwable) {
         this.object = object;
         this.throwable = throwable;
     }
 
+    /**
+     * Constructor
+     * @param object the message object
+     */
     public ThrowableObject(Object object) {
         this.object = object;
     }
 
+    /**
+     * The message object
+     * @return {@link Object}
+     */
     public Object getObject() {
         return object;
     }
 
-    public ThrowableObject setObject(Object object) {
-        this.object = object;
-        return this;
-    }
-
+    /**
+     * The exception object, including its stack trace
+     * @return {@link Throwable}
+     */
     public Throwable getThrowable() {
         return throwable;
-    }
-
-    public ThrowableObject setThrowable(Throwable throwable) {
-        this.throwable = throwable;
-        return this;
     }
 }
