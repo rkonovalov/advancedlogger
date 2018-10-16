@@ -1,7 +1,7 @@
 package com.github.rkonovalov.logger;
 
 /**
- * LoggerEvent
+ *
  * This event used in {@link AdvancedLogger}
  */
 

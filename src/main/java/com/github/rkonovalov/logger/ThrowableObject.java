@@ -1,7 +1,7 @@
 package com.github.rkonovalov.logger;
 
 /**
- * ThrowableObject
+ *
  * This class used in {@link AdvancedLogger}
  */
 

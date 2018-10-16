@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * AdvancedLogger
+ *
  * This class expands features of standard Log4J logger
  */
 
