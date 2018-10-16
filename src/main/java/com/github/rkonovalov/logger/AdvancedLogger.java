@@ -1,6 +1,5 @@
 package com.github.rkonovalov.logger;
 
-import com.sun.istack.internal.NotNull;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import java.util.LinkedList;
@@ -37,7 +36,7 @@ public class AdvancedLogger {
      * @param logger {@link Logger} Log4J logger
      * May not be null
      */
-    public AdvancedLogger(@NotNull Logger logger) {
+    public AdvancedLogger(Logger logger) {
         this.logger = logger;
         this.eventList = new LinkedList<>();
         this.transactionStarted = false;
@@ -57,7 +56,7 @@ public class AdvancedLogger {
      * @param clazz {@link Class} the class of the logger to retrieve
      * May not be null
      */
-    public AdvancedLogger(@NotNull Class clazz) {
+    public AdvancedLogger(Class clazz) {
         this(clazz.getName());
     }
 
@@ -66,7 +65,7 @@ public class AdvancedLogger {
      * @param object {@link Object} the object of the logger to retrieve
      * May not be null
      */
-    public AdvancedLogger(@NotNull Object object) {
+    public AdvancedLogger(Object object) {
         this(object.getClass());
     }
 
