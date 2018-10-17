@@ -17,7 +17,7 @@ If you are using Maven you need add next dependency
 <dependency>
   <groupId>com.github.rkonovalov</groupId>
   <artifactId>advancedlogger</artifactId>
-  <version>1.1</version>
+  <version>1.2</version>
 </dependency>
 ```
 If you are using another build automation tool, you can find configuration string by this URL:
@@ -87,7 +87,7 @@ In the next example you can see typical initialization and usage of AdvancedLogg
 ### Initialization
 ```java
 public class Example {
-    private static final AdvancedLogger logger = new AdvancedLogger(Example.class);
+    private static final AdvancedLogger logger = AdvancedLogger.getLogger(Example.class);
 
     public static void main(String[] args) {
         
@@ -101,7 +101,7 @@ public class Example {
 ### Log simple messages
 ```java
 public class Example {
-    private static final AdvancedLogger logger = new AdvancedLogger(Example.class);
+    private static final AdvancedLogger logger = AdvancedLogger.getLogger(Example.class);
 
     public static void main(String[] args) {
         
@@ -128,7 +128,7 @@ public class Example {
 ### Log throwable messages
 ```java
 public class Example {
-    private static final AdvancedLogger logger = new AdvancedLogger(Example.class);
+    private static final AdvancedLogger logger = AdvancedLogger.getLogger(Example.class);
 
     public static void main(String[] args) {
         
@@ -142,7 +142,7 @@ public class Example {
 ### Log static events
 ```java
 public class Example {
-    private static final AdvancedLogger logger = new AdvancedLogger(Example.class);
+    private static final AdvancedLogger logger = AdvancedLogger.getLogger(Example.class);
     private static final LoggerEvent currentTime = () -> "Current time: " + new Date().toString();
 
     public static void main(String[] args) {
@@ -170,7 +170,7 @@ public class Example {
 If the log process takes a lot of time, you can use packet logging
 ```java
 public class Example {
-    private static final AdvancedLogger logger = new AdvancedLogger(Example.class);
+    private static final AdvancedLogger logger = AdvancedLogger.getLogger(Example.class);
     private static final LoggerEvent currentTime = () -> "Current time: " + new Date().toString();
 
     public static void main(String[] args) {
@@ -207,7 +207,7 @@ But sometimes we need get result from event at same time when event will be adde
 Thus wee need to change packet logging mode to time critical. Next example illustrates how we can do it
 ```java
 public class Example {
-    private static final AdvancedLogger logger = new AdvancedLogger(Example.class);
+    private static final AdvancedLogger logger = AdvancedLogger.getLogger(Example.class);
     private static final LoggerEvent currentTime = () -> "Current time: " + new Date().toString();
 
     public static void main(String[] args) {
@@ -232,6 +232,9 @@ public class Example {
 }
 ```
 
+## Version 1.2
+Added static initialisation
+Fixed bugs
 
 ## Version 1.1
 Added packet logging
