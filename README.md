@@ -233,7 +233,7 @@ public class Example {
 ```
 
 ## Version 1.2
-Added static initialisation
+Added static initialization
 Fixed bugs
 
 ## Version 1.1
