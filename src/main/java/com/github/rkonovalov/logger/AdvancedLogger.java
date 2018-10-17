@@ -85,7 +85,6 @@ public class AdvancedLogger {
                  */
                 Object result = eventResult == null ? event.onEvent() : eventResult;
 
-
                 /*
                  * If eventResult is eventResult then try to log throwable exception
                  */
