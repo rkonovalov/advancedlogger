@@ -6,7 +6,7 @@ import static org.junit.Assert.assertNotNull;
 public class AdvancedLoggerTest {
 
     @Test
-    public void testgetLoggerByObject() {
+    public void testGetLoggerByObject() {
         String str = "str";
         AdvancedLogger logger = AdvancedLogger.getLogger(str);
         assertNotNull(logger);
