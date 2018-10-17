@@ -1,4 +1,5 @@
-import com.github.rkonovalov.logger.AdvancedLogger;
+package com.github.rkonovalov.logger;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
