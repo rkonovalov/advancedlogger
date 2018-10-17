@@ -83,17 +83,17 @@ public class AdvancedLogger {
                 /*
                  * If eventResult is null then try to get event result from event
                  */
-                if (eventResult == null)
-                    eventResult = event.onEvent();
+                Object result = eventResult == null ? event.onEvent() : eventResult;
+
 
                 /*
                  * If eventResult is eventResult then try to log throwable exception
                  */
-                if (eventResult instanceof ThrowableObject) {
-                    ThrowableObject throwableObject = (ThrowableObject) eventResult;
+                if (result instanceof ThrowableObject) {
+                    ThrowableObject throwableObject = (ThrowableObject) result;
                     logger.log(level, throwableObject.getObject(), throwableObject.getThrowable());
                 } else
-                    logger.log(level, eventResult);
+                    logger.log(level, result);
             } else {
                 /*
                  * Enabled packet logging type, add event in eventList queue
