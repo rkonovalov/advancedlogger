@@ -1,7 +1,7 @@
 package com.github.rkonovalov.logger;
 
 /**
- *
+ * Packet type
  * This event used in {@link AdvancedLogger} and {@link EventQueueItem}
  */
 

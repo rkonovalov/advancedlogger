@@ -1,7 +1,7 @@
 package com.github.rkonovalov.logger;
 
 /**
- *
+ * Throwable object contains message object and exception
  * This class used in {@link AdvancedLogger}
  */
 

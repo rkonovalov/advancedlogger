@@ -3,7 +3,7 @@ package com.github.rkonovalov.logger;
 import org.apache.log4j.Level;
 
 /**
- *
+ * Event queue item
  * This class used in {@link AdvancedLogger} as item in packet queue
  */
 

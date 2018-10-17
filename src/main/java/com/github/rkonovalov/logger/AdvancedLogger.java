@@ -70,6 +70,33 @@ public class AdvancedLogger {
     }
 
     /**
+     * Get logger by name
+     * @param className {@link String} the name of the logger to retrieve
+     * @return {@link AdvancedLogger} logger
+     */
+    public static AdvancedLogger getLogger(String className) {
+        return new AdvancedLogger(className);
+    }
+
+    /**
+     * Get logger by class
+     * @param clazz {@link Class} the class of the logger to retrieve
+     * @return {@link AdvancedLogger} logger
+     */
+    public static AdvancedLogger getLogger(Class clazz) {
+        return new AdvancedLogger(clazz);
+    }
+
+    /**
+     * Get logger by object
+     * @param object {@link Object} the object of the logger to retrieve
+     * @return {@link AdvancedLogger} logger
+     */
+    public static AdvancedLogger getLogger(Object object) {
+        return new AdvancedLogger(object);
+    }
+
+    /**
      *
      * @param level {@link Level} log level
      * @param event  {@link LoggerEvent} log event
