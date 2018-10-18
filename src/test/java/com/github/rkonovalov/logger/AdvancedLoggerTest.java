@@ -134,6 +134,14 @@ public class AdvancedLoggerTest {
     }
 
     @Test
+    public void testThrowablesInPacket() {
+        AdvancedLogger logger = defaultLogger.startPacket();
+        defaultLogger.error(() -> new RuntimeException("error"))
+                .warn(() -> new NullPointerException("second error"));
+        defaultLogger.stopPacket();
+    }
+
+    @Test
     public void testThrowables() {
         AdvancedLogger logger = defaultLogger.error(() -> new RuntimeException("error"), () -> new NullPointerException("second error"));
         assertNotNull(logger);
@@ -141,7 +149,7 @@ public class AdvancedLoggerTest {
 
     @Test
     public void testPacketCritical() {
-        AdvancedLogger logger =defaultLogger.startPacket(PacketType.CRITICAL);
+        AdvancedLogger logger = defaultLogger.startPacket(PacketType.CRITICAL);
         assertNotNull(logger);
         defaultLogger.fatal(() -> "fatal info")
                 .error(() -> "error info")
