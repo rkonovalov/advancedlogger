@@ -43,68 +43,81 @@ public class AdvancedLoggerTest {
 
     @Test
     public void testFatal() {
-        defaultLogger.fatal(() -> "fatal");
+        AdvancedLogger logger = defaultLogger.fatal(() -> "fatal");
+        assertNotNull(logger);
     }
 
     @Test
     public void testError() {
-        defaultLogger.error(() -> "error");
+        AdvancedLogger logger = defaultLogger.error(() -> "error");
+        assertNotNull(logger);
     }
 
     @Test
     public void testWarn() {
-        defaultLogger.warn(() -> "warn");
+        AdvancedLogger logger = defaultLogger.warn(() -> "warn");
+        assertNotNull(logger);
     }
 
     @Test
     public void testInfo() {
-        defaultLogger.info(() -> "info");
+        AdvancedLogger logger = defaultLogger.info(() -> "info");
+        assertNotNull(logger);
     }
 
     @Test
     public void testDebug() {
-        defaultLogger.debug(() -> "debug");
+        AdvancedLogger logger = defaultLogger.debug(() -> "debug");
+        assertNotNull(logger);
     }
 
     @Test
     public void testTrace() {
-        defaultLogger.trace(() -> "trace");
+        AdvancedLogger logger = defaultLogger.trace(() -> "trace");
+        assertNotNull(logger);
     }
 
 
     @Test
     public void testFatals() {
-        defaultLogger.fatal(() -> "fatal", () -> "message");
+        AdvancedLogger logger = defaultLogger.fatal(() -> "fatal", () -> "message");
+        assertNotNull(logger);
     }
 
     @Test
     public void testErrors() {
-        defaultLogger.error(() -> "error", () -> "message");
+        AdvancedLogger logger = defaultLogger.error(() -> "error", () -> "message");
+        assertNotNull(logger);
     }
 
     @Test
     public void testWarns() {
-        defaultLogger.warn(() -> "warn", () -> "message");
+        AdvancedLogger logger = defaultLogger.warn(() -> "warn", () -> "message");
+        assertNotNull(logger);
     }
 
     @Test
     public void testInfos() {
-        defaultLogger.info(() -> "info", () -> "message");
+        AdvancedLogger logger = defaultLogger.info(() -> "info", () -> "message");
+        assertNotNull(logger);
     }
 
     @Test
     public void testDebugs() {
-        defaultLogger.debug(() -> "debug", () -> "message");
+        AdvancedLogger logger = defaultLogger.debug(() -> "debug", () -> "message");
+        assertNotNull(logger);
     }
 
     @Test
     public void testTraces() {
-        defaultLogger.trace(() -> "trace", () -> "message");
+        AdvancedLogger logger = defaultLogger.trace(() -> "trace", () -> "message");
+        assertNotNull(logger);
     }
 
     @Test
     public void testPacket() {
-        defaultLogger.startPacket();
+        AdvancedLogger logger = defaultLogger.startPacket();
+        assertNotNull(logger);
         defaultLogger.fatal(() -> "fatal info")
                 .error(() -> "error info")
                 .warn(() -> "warn info")
@@ -116,7 +129,8 @@ public class AdvancedLoggerTest {
 
     @Test
     public void testPacketCritical() {
-        defaultLogger.startPacket(PacketType.CRITICAL);
+        AdvancedLogger logger =defaultLogger.startPacket(PacketType.CRITICAL);
+        assertNotNull(logger);
         defaultLogger.fatal(() -> "fatal info")
                 .error(() -> "error info")
                 .warn(() -> "warn info")

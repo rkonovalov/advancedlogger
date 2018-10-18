@@ -155,26 +155,29 @@ public class AdvancedLogger {
     /**
      * Starts packet logging
      */
-    public void startPacket() {
+    public AdvancedLogger startPacket() {
         eventList.clear();
         transactionStarted = true;
+        return this;
     }
 
     /**
      * Starts packet logging
      * @param packetType {@link PacketType} packet type
      */
-    public void startPacket(PacketType packetType) {
+    public AdvancedLogger startPacket(PacketType packetType) {
         this.packetType = packetType;
         startPacket();
+        return this;
     }
 
     /**
      * Stops packet logging and proceed to print all events in eventList queue
      */
-    public void stopPacket() {
+    public AdvancedLogger stopPacket() {
         transactionStarted = false;
         proceedEvents();
+        return this;
     }
 
     /**
