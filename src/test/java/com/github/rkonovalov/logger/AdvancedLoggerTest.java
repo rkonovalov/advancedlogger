@@ -142,7 +142,14 @@ public class AdvancedLoggerTest {
     }
 
     @Test
+    public void testThrowableObject() {
+        AdvancedLogger logger = defaultLogger.error(() -> new ThrowableObject("error", new RuntimeException("error")));
+        assertNotNull(logger);
+    }
+
+    @Test
     public void testThrowables() {
+
         AdvancedLogger logger = defaultLogger.error(() -> new RuntimeException("error"), () -> new NullPointerException("second error"));
         assertNotNull(logger);
     }
@@ -158,5 +165,15 @@ public class AdvancedLoggerTest {
                 .debug(() -> "debug info")
                 .trace(() -> "error info");
         defaultLogger.stopPacket();
+    }
+
+    @Test
+    public void testThrowableObjectPacket() {
+        AdvancedLogger logger = defaultLogger.startPacket()
+                .error(() -> new ThrowableObject("error", new RuntimeException("error")))
+                .warn(() -> new ThrowableObject("null", new NullPointerException()))
+                .stopPacket();
+
+        assertNotNull(logger);
     }
 }

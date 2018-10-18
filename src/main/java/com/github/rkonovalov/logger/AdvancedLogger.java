@@ -2,11 +2,11 @@ package com.github.rkonovalov.logger;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- *
  * This class expands features of standard Log4J logger
  */
 
@@ -33,8 +33,9 @@ public class AdvancedLogger {
 
     /**
      * Constructor
+     *
      * @param logger {@link Logger} Log4J logger
-     * May not be null
+     *               May not be null
      */
     public AdvancedLogger(Logger logger) {
         this.logger = logger;
@@ -45,6 +46,7 @@ public class AdvancedLogger {
 
     /**
      * Constructor
+     *
      * @param className {@link String} the name of the logger to retrieve
      */
     public AdvancedLogger(String className) {
@@ -53,8 +55,9 @@ public class AdvancedLogger {
 
     /**
      * Constructor
+     *
      * @param clazz {@link Class} the class of the logger to retrieve
-     * May not be null
+     *              May not be null
      */
     public AdvancedLogger(Class clazz) {
         this(clazz.getName());
@@ -62,8 +65,9 @@ public class AdvancedLogger {
 
     /**
      * Constructor
+     *
      * @param object {@link Object} the object of the logger to retrieve
-     * May not be null
+     *               May not be null
      */
     public AdvancedLogger(Object object) {
         this(object.getClass());
@@ -71,6 +75,7 @@ public class AdvancedLogger {
 
     /**
      * Get logger by name
+     *
      * @param className {@link String} the name of the logger to retrieve
      * @return {@link AdvancedLogger} logger
      */
@@ -80,6 +85,7 @@ public class AdvancedLogger {
 
     /**
      * Get logger by class
+     *
      * @param clazz {@link Class} the class of the logger to retrieve
      * @return {@link AdvancedLogger} logger
      */
@@ -89,6 +95,7 @@ public class AdvancedLogger {
 
     /**
      * Get logger by object
+     *
      * @param object {@link Object} the object of the logger to retrieve
      * @return {@link AdvancedLogger} logger
      */
@@ -97,11 +104,10 @@ public class AdvancedLogger {
     }
 
     /**
-     *
-     * @param level {@link Level} log level
-     * @param event  {@link LoggerEvent} log event
-     * @param eventResult  {@link Object} result of log event
-     * Not null when packetType {@link PacketType} is CRITICAL
+     * @param level       {@link Level} log level
+     * @param event       {@link LoggerEvent} log event
+     * @param eventResult {@link Object} result of log event
+     *                    Not null when packetType {@link PacketType} is CRITICAL
      */
     private void log(Level level, LoggerEvent event, Object eventResult) {
         if (logger.isEnabledFor(level) && event != null) {
@@ -118,6 +124,8 @@ public class AdvancedLogger {
                 if (result instanceof ThrowableObject) {
                     ThrowableObject throwableObject = (ThrowableObject) result;
                     logger.log(level, throwableObject.getObject(), throwableObject.getThrowable());
+                } else if (result instanceof Throwable) {
+                    logger.log(level, "", (Throwable) result);
                 } else
                     logger.log(level, result);
             } else {
@@ -130,7 +138,6 @@ public class AdvancedLogger {
     }
 
     /**
-     *
      * @param level {@link Level} log level
      * @param event {@link LoggerEvent} log event
      */
@@ -145,7 +152,7 @@ public class AdvancedLogger {
         while (eventList.size() > 0) {
             EventQueueItem item = eventList.remove();
 
-            if(item.getPacketType() == PacketType.CRITICAL) {
+            if (item.getPacketType() == PacketType.CRITICAL) {
                 log(item.getLevel(), item.getEvent(), item.getEventResult());
             } else
                 log(item.getLevel(), item.getEvent());
@@ -163,6 +170,7 @@ public class AdvancedLogger {
 
     /**
      * Starts packet logging
+     *
      * @param packetType {@link PacketType} packet type
      */
     public AdvancedLogger startPacket(PacketType packetType) {
@@ -182,6 +190,7 @@ public class AdvancedLogger {
 
     /**
      * Print event if log level {@link Level} FATAL is enabled
+     *
      * @param event {@link LoggerEvent} event may not be null
      * @return {@link AdvancedLogger} instance of AdvancedLogger class
      */
@@ -192,6 +201,7 @@ public class AdvancedLogger {
 
     /**
      * Print events if log level {@link Level} FATAL is enabled
+     *
      * @param events {@link LoggerEvent} array of event may not be null
      * @return {@link AdvancedLogger} instance of AdvancedLogger class
      */
@@ -203,6 +213,7 @@ public class AdvancedLogger {
 
     /**
      * Print event if log level {@link Level} ERROR is enabled
+     *
      * @param event {@link LoggerEvent} event may not be null
      * @return {@link AdvancedLogger} instance of AdvancedLogger class
      */
@@ -213,6 +224,7 @@ public class AdvancedLogger {
 
     /**
      * Print events if log level {@link Level} ERROR is enabled
+     *
      * @param events {@link LoggerEvent} array of event may not be null
      * @return {@link AdvancedLogger} instance of AdvancedLogger class
      */
@@ -224,6 +236,7 @@ public class AdvancedLogger {
 
     /**
      * Print event if log level {@link Level} WARN is enabled
+     *
      * @param event {@link LoggerEvent} event may not be null
      * @return {@link AdvancedLogger} instance of AdvancedLogger class
      */
@@ -234,6 +247,7 @@ public class AdvancedLogger {
 
     /**
      * Print events if log level {@link Level} WARN is enabled
+     *
      * @param events {@link LoggerEvent} array of event may not be null
      * @return {@link AdvancedLogger} instance of AdvancedLogger class
      */
@@ -245,6 +259,7 @@ public class AdvancedLogger {
 
     /**
      * Print event if log level {@link Level} INFO is enabled
+     *
      * @param event {@link LoggerEvent} event may not be null
      * @return {@link AdvancedLogger} instance of AdvancedLogger class
      */
@@ -255,6 +270,7 @@ public class AdvancedLogger {
 
     /**
      * Print events if log level {@link Level} INFO is enabled
+     *
      * @param events {@link LoggerEvent} array of event may not be null
      * @return {@link AdvancedLogger} instance of AdvancedLogger class
      */
@@ -266,6 +282,7 @@ public class AdvancedLogger {
 
     /**
      * Print event if log level {@link Level} DEBUG is enabled
+     *
      * @param event {@link LoggerEvent} event may not be null
      * @return {@link AdvancedLogger} instance of AdvancedLogger class
      */
@@ -276,6 +293,7 @@ public class AdvancedLogger {
 
     /**
      * Print events if log level {@link Level} DEBUG is enabled
+     *
      * @param events {@link LoggerEvent} array of event may not be null
      * @return {@link AdvancedLogger} instance of AdvancedLogger class
      */
@@ -287,6 +305,7 @@ public class AdvancedLogger {
 
     /**
      * Print event if log level {@link Level} TRACE is enabled
+     *
      * @param event {@link LoggerEvent} event may not be null
      * @return {@link AdvancedLogger} instance of AdvancedLogger class
      */
@@ -297,6 +316,7 @@ public class AdvancedLogger {
 
     /**
      * Print events if log level {@link Level} TRACE is enabled
+     *
      * @param events {@link LoggerEvent} array of event may not be null
      * @return {@link AdvancedLogger} instance of AdvancedLogger class
      */
