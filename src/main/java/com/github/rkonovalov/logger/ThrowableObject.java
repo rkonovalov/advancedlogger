@@ -11,12 +11,6 @@ public class ThrowableObject {
 
     /**
      * Constructor
-     */
-    public ThrowableObject() {
-    }
-
-    /**
-     * Constructor
      * @param object the message object
      * @param throwable the exception object, including its stack trace
      */
