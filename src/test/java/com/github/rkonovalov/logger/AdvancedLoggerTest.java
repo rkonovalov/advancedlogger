@@ -116,15 +116,16 @@ public class AdvancedLoggerTest {
 
     @Test
     public void testPacket() {
-        AdvancedLogger logger = defaultLogger.startPacket();
-        assertNotNull(logger);
-        defaultLogger.fatal(() -> "fatal info")
+        AdvancedLogger logger = defaultLogger.startPacket()
+                .fatal(() -> "fatal info")
                 .error(() -> "error info")
                 .warn(() -> "warn info")
                 .info(() -> "info")
                 .debug(() -> "debug info")
-                .trace(() -> "error info");
-        defaultLogger.stopPacket();
+                .trace(() -> "error info")
+                .stopPacket();
+
+        assertNotNull(logger);
     }
 
     @Test
@@ -135,10 +136,11 @@ public class AdvancedLoggerTest {
 
     @Test
     public void testThrowablesInPacket() {
-        AdvancedLogger logger = defaultLogger.startPacket();
-        defaultLogger.error(() -> new RuntimeException("error"))
-                .warn(() -> new NullPointerException("second error"));
-        defaultLogger.stopPacket();
+        AdvancedLogger logger = defaultLogger.startPacket()
+                .error(() -> new RuntimeException("error"))
+                .warn(() -> new NullPointerException("second error"))
+                .stopPacket();
+        assertNotNull(logger);
     }
 
     @Test
@@ -150,28 +152,29 @@ public class AdvancedLoggerTest {
     @Test
     public void testThrowables() {
 
-        AdvancedLogger logger = defaultLogger.error(() -> new RuntimeException("error"), () -> new NullPointerException("second error"));
+        AdvancedLogger logger = defaultLogger.error(() -> new RuntimeException("error"), () -> new RuntimeException("second error"));
         assertNotNull(logger);
     }
 
     @Test
     public void testPacketCritical() {
-        AdvancedLogger logger = defaultLogger.startPacket(PacketType.CRITICAL);
-        assertNotNull(logger);
-        defaultLogger.fatal(() -> "fatal info")
+        AdvancedLogger logger = defaultLogger.startPacket(PacketType.CRITICAL)
+                .fatal(() -> "fatal info")
                 .error(() -> "error info")
                 .warn(() -> "warn info")
                 .info(() -> "info")
                 .debug(() -> "debug info")
-                .trace(() -> "error info");
-        defaultLogger.stopPacket();
+                .trace(() -> "error info")
+                .stopPacket();
+
+        assertNotNull(logger);
     }
 
     @Test
     public void testThrowableObjectPacket() {
         AdvancedLogger logger = defaultLogger.startPacket()
                 .error(() -> new ThrowableObject("error", new RuntimeException("error")))
-                .warn(() -> new ThrowableObject("null", new NullPointerException()))
+                .warn(() -> new ThrowableObject("null", new RuntimeException()))
                 .stopPacket();
 
         assertNotNull(logger);
