@@ -1,7 +1,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Build Status](https://travis-ci.org/rkonovalov/advancedlogger.svg?branch=master)](https://travis-ci.org/rkonovalov/advancedlogger)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.rkonovalov/advancedlogger/badge.svg?style=blue)](https://maven-badges.herokuapp.com/maven-central/com.github.rkonovalov/advancedlogger/)
-[![Javadocs](http://www.javadoc.io/badge/com.github.rkonovalov/advancedlogger.svg)](http://www.javadoc.io/doc/com.github.rkonovalov/advancedlogger)
+[![Javadocs](http://www.javadoc.io/badge/com.github.rkonovalov/advancedlogger.svg?1.2)](http://www.javadoc.io/doc/com.github.rkonovalov/advancedlogger)
 [![codecov](https://codecov.io/gh/rkonovalov/advancedlogger/branch/master/graph/badge.svg)](https://codecov.io/gh/rkonovalov/advancedlogger)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1b6c7b16e7014f3e9038a8cf18a676a1)](https://www.codacy.com/app/rkonovalov/advancedlogger?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rkonovalov/advancedlogger&amp;utm_campaign=Badge_Grade)
 
