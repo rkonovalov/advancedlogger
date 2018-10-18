@@ -21,7 +21,7 @@ If you are using Maven you need add next dependency
 </dependency>
 ```
 If you are using another build automation tool, you can find configuration string by this URL:
-https://search.maven.org/artifact/com.github.rkonovalov/advancedlogger/1.0.0/jar
+https://search.maven.org/artifact/com.github.rkonovalov/advancedlogger/1.2/jar
 
 # Description
 Usually when are you using Log4J logging you should to use next code
