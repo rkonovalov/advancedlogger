@@ -130,29 +130,29 @@ public class AdvancedLoggerTest {
 
     @Test
     public void testThrowable() {
-        AdvancedLogger logger = defaultLogger.error(() -> new RuntimeException("error"));
+        AdvancedLogger logger = defaultLogger.error(() -> new IllegalArgumentException ("error"));
         assertNotNull(logger);
     }
 
     @Test
     public void testThrowablesInPacket() {
         AdvancedLogger logger = defaultLogger.startPacket()
-                .error(() -> new RuntimeException("error"))
-                .warn(() -> new NullPointerException("second error"))
+                .error(() -> new IllegalArgumentException ("error"))
+                .warn(() -> new IllegalArgumentException ("second error"))
                 .stopPacket();
         assertNotNull(logger);
     }
 
     @Test
     public void testThrowableObject() {
-        AdvancedLogger logger = defaultLogger.error(() -> new ThrowableObject("error", new RuntimeException("error")));
+        AdvancedLogger logger = defaultLogger.error(() -> new ThrowableObject("error", new IllegalArgumentException ("error")));
         assertNotNull(logger);
     }
 
     @Test
     public void testThrowables() {
 
-        AdvancedLogger logger = defaultLogger.error(() -> new RuntimeException("error"), () -> new RuntimeException("second error"));
+        AdvancedLogger logger = defaultLogger.error(() -> new IllegalArgumentException ("error"), () -> new IllegalArgumentException ("second error"));
         assertNotNull(logger);
     }
 
@@ -173,8 +173,8 @@ public class AdvancedLoggerTest {
     @Test
     public void testThrowableObjectPacket() {
         AdvancedLogger logger = defaultLogger.startPacket()
-                .error(() -> new ThrowableObject("error", new RuntimeException("error")))
-                .warn(() -> new ThrowableObject("null", new RuntimeException()))
+                .error(() -> new ThrowableObject("error", new IllegalArgumentException ("error")))
+                .warn(() -> new ThrowableObject("null", new IllegalArgumentException ()))
                 .stopPacket();
 
         assertNotNull(logger);
