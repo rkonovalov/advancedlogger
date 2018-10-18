@@ -3,8 +3,6 @@ package com.github.rkonovalov.logger;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
-
-
 import static org.junit.Assert.assertNotNull;
 
 public class AdvancedLoggerTest {
@@ -130,29 +128,29 @@ public class AdvancedLoggerTest {
 
     @Test
     public void testThrowable() {
-        AdvancedLogger logger = defaultLogger.error(() -> new IllegalArgumentException ("error"));
+        AdvancedLogger logger = defaultLogger.error(() -> new IllegalArgumentException("error"));
         assertNotNull(logger);
     }
 
     @Test
     public void testThrowablesInPacket() {
         AdvancedLogger logger = defaultLogger.startPacket()
-                .error(() -> new IllegalArgumentException ("error"))
-                .warn(() -> new IllegalArgumentException ("second error"))
+                .error(() -> new IllegalArgumentException("error"))
+                .warn(() -> new IllegalArgumentException("second error"))
                 .stopPacket();
         assertNotNull(logger);
     }
 
     @Test
     public void testThrowableObject() {
-        AdvancedLogger logger = defaultLogger.error(() -> new ThrowableObject("error", new IllegalArgumentException ("error")));
+        AdvancedLogger logger = defaultLogger.error(() -> new ThrowableObject("error", new IllegalArgumentException("error")));
         assertNotNull(logger);
     }
 
     @Test
     public void testThrowables() {
 
-        AdvancedLogger logger = defaultLogger.error(() -> new IllegalArgumentException ("error"), () -> new IllegalArgumentException ("second error"));
+        AdvancedLogger logger = defaultLogger.error(() -> new IllegalArgumentException("error"), () -> new IllegalArgumentException("second error"));
         assertNotNull(logger);
     }
 
@@ -173,10 +171,12 @@ public class AdvancedLoggerTest {
     @Test
     public void testThrowableObjectPacket() {
         AdvancedLogger logger = defaultLogger.startPacket()
-                .error(() -> new ThrowableObject("error", new IllegalArgumentException ("error")))
-                .warn(() -> new ThrowableObject("null", new IllegalArgumentException ()))
+                .error(() -> new ThrowableObject("error", new IllegalArgumentException("error")))
+                .warn(() -> new ThrowableObject("null", new IllegalArgumentException()))
                 .stopPacket();
 
         assertNotNull(logger);
     }
+
+
 }
