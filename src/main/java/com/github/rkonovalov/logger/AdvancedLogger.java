@@ -2,7 +2,6 @@ package com.github.rkonovalov.logger;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-
 import java.util.LinkedList;
 import java.util.Queue;
 
