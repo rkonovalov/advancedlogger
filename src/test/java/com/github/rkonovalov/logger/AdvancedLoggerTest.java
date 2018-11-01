@@ -3,6 +3,7 @@ package com.github.rkonovalov.logger;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.assertNotNull;
 
 public class AdvancedLoggerTest {

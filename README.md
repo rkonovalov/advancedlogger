@@ -55,7 +55,7 @@ public class Example {
          
          try {            
              //Do some stuff
-             //...
+              logger.info("Some message");
               } catch (Exception e) {
                 if(logger.isErrorEnabled())
                     logger.error("Some error", e);
@@ -232,12 +232,14 @@ public class Example {
 }
 ```
 
-## Version 1.2
-Added static initialization
-Fixed bugs
+# Release notes
 
-## Version 1.1
-Added packet logging
+**Version 1.2**
+* Added static initialization
+* Fixed bugs
 
-## Version 1.0
-Initial release
+**Version 1.1**
+* Added packet logging
+
+**Version 1.0**
+* Initial release
