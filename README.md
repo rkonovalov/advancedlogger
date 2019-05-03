@@ -1,3 +1,10 @@
+<div align="center">
+  <a href="https://rkonovalov.github.io/projects/advancedlogger/1.0.0/">
+    <img src="https://rkonovalov.github.io/assets/images/advancedlogger-logo.svg" alt="AdvancedLogger main page">
+  </a>
+  <br>
+</div>
+
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Build Status](https://travis-ci.org/rkonovalov/advancedlogger.svg?branch=master)](https://travis-ci.org/rkonovalov/advancedlogger)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.rkonovalov/advancedlogger/badge.svg?style=blue)](https://maven-badges.herokuapp.com/maven-central/com.github.rkonovalov/advancedlogger/)
